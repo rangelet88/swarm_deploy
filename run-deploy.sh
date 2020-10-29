@@ -5,10 +5,9 @@ SHARE_PATH='/srv/docker'
 IP1=$(getent hosts swarm1 | awk '{print $1}')
 IP2=$(getent hosts swarm2 | awk '{print $1}')
 IP3=$(getent hosts swarm3 | awk '{print $1}')
-PUBLIC_IP=$(curl ifconfig.co)
 export IP1 IP2 IP3
 export REMOTE_MOUNT=$SHARE_PATH'/data'
-export PUBLIC_IP=$PUBLIC_IP
+export PUBLIC_IP=$(curl ifconfig.co)
 
 # Es mou a la carpeta compartida amb la resta de nodes
 cd $SHARE_PATH
