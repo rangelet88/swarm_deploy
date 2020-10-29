@@ -23,6 +23,10 @@ docker network create --driver overlay portainer_agent
 
 # Executa el desplegament dels serveis
 cd $SHARE_PATH'/swarm_deploy'
+
+# Executa els scripts d'inicialització
+$SHARE_PATH'/swarm_deploy/logspout-elk/init-sh'
+
 docker stack deploy -c traefik/stack.yaml traefik
 docker stack deploy -c portainer/stack.yaml portainer
 docker stack deploy -c wordpress/stack.yaml wordpress
