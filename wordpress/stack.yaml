@@ -17,7 +17,8 @@ services:
    wordpress:
      depends_on:
        - db
-     image: thecodewithin/my-wordpress
+     image: wordpress:latest
+     #image: thecodewithin/my-wordpress
      volumes:
        - ${REMOTE_MOUNT}/wordpress/data:/var/www/html
      networks:
@@ -32,7 +33,7 @@ services:
      deploy:
        labels:
          traefik.port: 80
-         traefik.frontend.rule: "Host: wordpress.${PUBLIC_IP}.nip.io"
+         traefik.frontend.rule: "Host:wordpress.${PUBLIC_IP}.nip.io"
          traefik.docker.network: "proxy"
 
 volumes:

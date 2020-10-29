@@ -13,6 +13,8 @@ services:
   portainer:
     image: portainer/portainer
     command: '-H "tcp://tasks.agent:9001" --tlsskipverify'
+    ports:
+      - ${PUBLIC_PORT}:9000
     networks:
       - proxy
       - portainer_agent
@@ -24,7 +26,7 @@ services:
       replicas: 1
       labels:
         traefik.port: 9000
-        traefik.frontend.rule: "Host: portainer.${PUBLIC_IP}.nip.io"
+        traefik.frontend.rule: "Host:portainer.${IP1}.nip.io,portainer.${IP2}.nip.io,portainer.${IP3}.nip.io"
         traefik.docker.network: 'proxy'
       placement:
         constraints: [node.role == manager]
