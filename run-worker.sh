@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## VARIABLES
-MASTER_HOSTNAME='docker1'       ####  ALERTA! Substituïr pel hostname adequat!
+MASTER_HOSTNAME='swarm1'       ####  ALERTA! Substituïr pel hostname adequat!
 SHARE_PATH='/srv/nfs'           # Path de la carpeta compartida
 CLUSTER_PATH='/srv/docker'      # Path de la carpeta del clúster
 
