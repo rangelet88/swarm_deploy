@@ -12,13 +12,13 @@ Copiar el codi descrit a continuació per a cadascún dels nodes.
 ### Master
 
 ```
-curl https://raw.githubusercontent.com/rangelet88/swarm_deploy/master/run-master.sh | sudo bash
+curl https://raw.githubusercontent.com/rangelet88/swarm_deploy/master/run-master.sh | sudo bash -x
 ```
 
 ### Workers
 
 ```
-curl https://raw.githubusercontent.com/rangelet88/swarm_deploy/master/run-worker.sh | sudo bash
+curl https://raw.githubusercontent.com/rangelet88/swarm_deploy/master/run-worker.sh | sudo bash -x
 ```
 
 ### Deploy dels serveis
@@ -27,5 +27,5 @@ Un cop instal·lat docker a cadascún dels nodes i creat el clúster de Swarm, e
 script al node màster:
 
 ```
-curl https://raw.githubusercontent.com/rangelet88/swarm_deploy/master/run-deploy.sh | sudo bash
+curl https://raw.githubusercontent.com/rangelet88/swarm_deploy/master/run-deploy.sh | sudo bash -x
 ```
