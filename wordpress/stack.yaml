@@ -32,7 +32,7 @@ services:
      deploy:
        labels:
          traefik.port: 80
-         traefik.frontend.rule: "Host: portainer.${IP1}.nip.io,portainer.${IP2}.nip.io,portainer.${IP3}.nip.io"
+         traefik.frontend.rule: "Host: wordpress.${PUBLIC_IP}.nip.io"
          traefik.docker.network: "proxy"
 
 volumes:
