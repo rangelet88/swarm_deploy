@@ -29,6 +29,9 @@ systemctl start nfs-kernel-server
 exportfs -r
 mount -a
 
+# Incrementem la memoria del node
+echo 'vm.max_map_count=262144' >> /etc/sysctl.conf
+
 ## Creació del clùster
 cd $CLUSTER_PATH
 # Inicialitza com a clùster swarm

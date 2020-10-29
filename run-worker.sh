@@ -20,6 +20,9 @@ apt install -y nfs-common
 # Fa el muntatge de la unitat
 mount -a
 
+# Incrementem la memoria del node
+echo 'vm.max_map_count=262144' >> /etc/sysctl.conf
+
 ## Creació del clùster
 # Executa l'script per a unir-se al swarm
 $CLUSTER_PATH'/join.sh'
