@@ -13,6 +13,10 @@ cd $SHARE_PATH
 # Clona el repositori
 git clone https://github.com/rangelet88/swarm_deploy
 
+# Crea les carpetes necessaries per als contenidors
+mkdir -p $REMOTE_MOUNT'portainer/data'
+mkdir -p $REMOTE_MOUNT'wordpress/data'
+
 # Crea les xarxes necessaries per al desplegament
 docker network create --driver overlay proxy
 docker network create --driver overlay portainer_agent
