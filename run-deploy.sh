@@ -13,20 +13,15 @@ cd $SHARE_PATH
 # Clona el repositori
 git clone https://github.com/rangelet88/swarm_deploy
 
-# Crea les carpetes necessaries per als contenidors
-mkdir -p $REMOTE_MOUNT'/portainer/data'
-mkdir -p $REMOTE_MOUNT'/wordpress/data'
-
 # Crea les xarxes necessaries per al desplegament
 docker network create --driver overlay proxy
-docker network create --driver overlay portainer_agent
-
-# Executa el desplegament dels serveis
-cd $SHARE_PATH'/swarm_deploy'
 
 # Executa els scripts d'inicialització
-$SHARE_PATH'/swarm_deploy/logspout-elk/init-sh'
+$SHARE_PATH'/swarm_deploy/portainer/init.sh'
+$SHARE_PATH'/swarm_deploy/wordpress/init.sh'
+$SHARE_PATH'/swarm_deploy/logspout-elk/init.sh'
 
 docker stack deploy -c traefik/stack.yaml traefik
 docker stack deploy -c portainer/stack.yaml portainer
 docker stack deploy -c wordpress/stack.yaml wordpress
+docker stack deploy -c logspout-elk/stack.yaml logspout
