@@ -16,14 +16,18 @@ git clone https://github.com/rangelet88/swarm_deploy
 # Crea les xarxes necessaries per al desplegament
 docker network create --driver overlay proxy
 
-# Atorga permisos i executa els scripts d'inicialització
-chmod +x $SHARE_PATH/swarm_deploy/portainer/init.sh
-$SHARE_PATH'/swarm_deploy/portainer/init.sh'
-chmod +x $SHARE_PATH/swarm_deploy/wordpress/init.sh
-$SHARE_PATH'/swarm_deploy/wordpress/init.sh'
-chmod +x $SHARE_PATH/swarm_deploy/logspout-elk/init.sh
-$SHARE_PATH'/swarm_deploy/logspout-elk/init.sh'
+# Es mou a la carpeta del repositori
+cd $SHARE_PATH/swarm_deploy/
 
+# Atorga permisos i executa els scripts d'inicialització
+chmod +x portainer/init.sh
+portainer/init.sh
+chmod +x wordpress/init.sh
+wordpress/init.sh
+chmod +x logspout-elk/init.sh
+logspout-elk/init.sh
+
+# Desplegament del serveis
 docker stack deploy -c traefik/stack.yaml traefik
 docker stack deploy -c portainer/stack.yaml portainer
 docker stack deploy -c wordpress/stack.yaml wordpress
