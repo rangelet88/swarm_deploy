@@ -6,7 +6,7 @@ SHARE_PATH='/srv/nfs'           # Path de la carpeta compartida
 CLUSTER_PATH='/srv/docker'      # Path de la carpeta del clúster
 
 # Instal·la els paquets de docker
-apt install -y git
+apt install -y git bash-completion
 curl https://get.docker.com | sudo bash
 
 # Crea els directoris necessaris per al clúster

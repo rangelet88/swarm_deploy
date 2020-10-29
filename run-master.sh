@@ -8,7 +8,7 @@ CLUSTER_PATH='/srv/docker'      # Path de la carpeta del clúster
 BASERANGE=$(ip -4 a show dev ens4  | awk '/inet/ {print $2}' | cut -d\. -f1-3)
 
 # Instal·la els paquets de docker
-apt install -y git
+apt install -y git bash-completion
 curl https://get.docker.com | sudo bash
 
 # Crea els directoris necessaris per al clúster
